@@ -19,3 +19,23 @@ Manager de Códigos de Corto Plazo, TOKEN
 QR -> Que contiene los datos de mi artefacto
 Lee el Authenticator y Asume la configuración TOTP
 
+- Logica de coleccion books
+
+Busqueda/ Leer 
+   - Busqueda de todo y realiza un conteo total
+   - Filtre la busqueda por: nombre, versión autor y genero; donde me informe que disponibilidad de unidades existen,
+     que refleje la fecha del préstamo
+   - Libros más solicitados
+
+Creación
+  - Crear libros
+
+Actualizar
+  - Cantidad total, cantidad disponible,  genero, versión/fecha de publicación  
+
+Eliminación
+- admin: historico (Estado fisico)
+- usuario:  disponibilidad
+ 
+    
+
