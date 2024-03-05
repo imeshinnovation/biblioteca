@@ -1,0 +1,21 @@
+Artefactos de Seguridad Necesarios para un Backend en Producción
+
+- Vulnerabilidades Comunes
+- Gestión del Acceso
+  - Autenticación -> Usuario/Correo, Contraseña, Código de Verificación o Preguntas Secretas
+    Enviar un Código por Correo/SMS y SOlicitar que lo escriba, El sistema Válida y lo deja pasar
+    Artefactos ya diseñados que permiten controlar la autenticación por OTP (One Time Password)
+
+  - Control de Acceso = > TOKENIZACION (Transaccionalidad)
+  - Transaccionalidad
+
+- Disponibilidad
+
+- Algoritmos de Encriptación
+
+TOTP Gerente de los Códigos -> Authenticator
+
+Manager de Códigos de Corto Plazo, TOKEN
+QR -> Que contiene los datos de mi artefacto
+Lee el Authenticator y Asume la configuración TOTP
+
