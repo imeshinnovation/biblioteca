@@ -1,6 +1,6 @@
 // Utilizar los Métodos HTTP
 
-const { Router } = require('express')
+//const { Routes } = require('express')
 
 /*
 GET, PUT, DELETE, POST
@@ -15,6 +15,10 @@ Routes.get('/count', async (req, res) => {
 
 Routes.post('/add', async (req, res) => {
     res.json(await Books.addBook(req.body))
+})
+
+Routes.post('/findBook', async (req, res) => {
+    res.json(await Books.findBook(req.body))
 })
 
 module.exports = Routes

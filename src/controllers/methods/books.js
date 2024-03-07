@@ -20,7 +20,6 @@ const Book = {
             case 'genre':
                 return await Books.find({ genre: finder }).lean()
                 break;
-
         }
     },
 

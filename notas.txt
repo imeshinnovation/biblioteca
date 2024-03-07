@@ -22,8 +22,8 @@ Lee el Authenticator y Asume la configuración TOTP
 - Logica de coleccion books
 
 Busqueda/ Leer 
-   - Busqueda de todo y realiza un conteo total
-   - Filtre la busqueda por: nombre, versión autor y genero; donde me informe que disponibilidad de unidades existen,
+   - Busqueda de todo y realiza un conteo total; OK
+   - Filtre la busqueda por: nombre, versión autor y genero; OK donde me informe que disponibilidad de unidades existen,
      que refleje la fecha del préstamo
    - Libros más solicitados
 
@@ -38,4 +38,19 @@ Eliminación
 - usuario:  disponibilidad
  
     
+- Logica de coleccion de prestamos de libros
 
+Busqueda/Leer
+    -Conteo de todos los libros que se han prestado
+    -Conteo de libros prestados un dia determinado
+    -Cuantos libros se han prestado por libro
+    -Prestamos de libros que se han vencido
+    -Prestamos de libros por usuario (historicos - actuales)
+
+Creacion
+    -Crear una solicitud de prestamo
+
+Actualizar
+    -Actualizar estado de entrega
+
+Eliminar
