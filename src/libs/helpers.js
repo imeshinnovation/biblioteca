@@ -40,6 +40,16 @@ const helpers = {
             timezone: "America/Bogota"
         })
         console.log(cron)
+    },
+    date_record: () => {
+        const data = new Date()
+        const day = data.getDate() < 10 ? '0' + data.getDate() : data.getDate()
+        const month = (data.getMonth() + 1) < 10 ? '0' + (data.getMonth() + 1) : (data.getMonth() + 1)
+        const year = data.getFullYear()
+        const hours = data.getHours() < 10 ? '0' + data.getHours() : data.getHours()
+        const minutes = data.getMinutes() < 10 ? '0' + data.getMinutes() : data.getMinutes()
+        const seconds = data.getSeconds() < 10 ? '0' + data.getSeconds() : data.getSeconds()
+        return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}` 
     }
 }
 /*

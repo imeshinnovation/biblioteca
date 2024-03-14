@@ -17,8 +17,16 @@ Routes.post('/add', async (req, res) => {
     res.json(await Books.addBook(req.body))
 })
 
-Routes.post('/findBook', async (req, res) => {
+Routes.post('/findbook', async (req, res) => {
     res.json(await Books.findBook(req.body))
+})
+
+Routes.put('/updatebook', async (req, res) => {
+    res.json(await Books.updateBook(req.body))
+})
+
+Routes.delete('/deletebook', async (req, res) => {
+    res.json(await Books.deleteBook(req.body))
 })
 
 module.exports = Routes

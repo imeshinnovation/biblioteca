@@ -1,4 +1,5 @@
 const Books = require('../../models')["books"]
+const helpers = require('../../libs/helpers')
 const Book = {
     //busqueda conteo total 
     count: async () => {
@@ -9,30 +10,37 @@ const Book = {
         const { filter, finder } = body
         switch (filter) {
             case 'name_book':
-                return await Books.find({ name_book: finder }).lean()
+                return await Books.find({ name_book: { $regex:finder } }).lean()
                 break;
             case 'author':
-                return await Books.find({ author: finder }).lean()
+                return await Books.find({ author: { $regex:finder } }).lean()
                 break;
             case 'editor':
-                return await Books.find({ editor: finder }).lean()
+                return await Books.find({ editor: { $regex:finder } }).lean()
                 break;
             case 'genre':
-                return await Books.find({ genre: finder }).lean()
+                return await Books.find({ genre: { $regex:finder } }).lean()
                 break;
         }
     },
 
     // agregar 
     addBook: async (body) => {
+        body.date_record = helpers.date_record()
         const Libro = await Books.create(body)
         return Libro
+    },
+
+    //Actualizar el libro solicitado
+    updateBook: async (body) => {
+        body.date_record = helpers.date_record()
+        return await Books.updateOne( { _id:body.id }, { $set:body } )   
+    },
+
+    //Eliminar el libro solicitado
+    deleteBook: async (body) => {
+        return await Books.deleteOne( { _id:body.id } )
     }
-
-
-
-
-
 
 }
 
