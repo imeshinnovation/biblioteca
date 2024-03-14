@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const env = process.env
 
-const MONGO_URI = `mongodb://${env.MONGO_USER}:${env.MONGO_PASSWD}@${env.MONGO_HOST}:${env.MONGO_PORT}/${env.MONGO_DB}?authSource=admin`
+const MONGO_URI = `mongodb+srv://${env.MONGO_USER}:${env.MONGO_PASSWD}@${env.MONGO_HOST}/${env.MONGO_DB}?retryWrites=true&w=majority&appName=Biblioteca1000`
 
 const BaseDatos = {
     connect: () => {
