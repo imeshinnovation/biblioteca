@@ -3,7 +3,8 @@ const QRCode = require("qrcode")
 const { createHmac } = require("node:crypto")
 const env = process.env
 
-const totp = {
+//modulo que contiene metodos para generacion, verificacion y manejo de codigo OTP (One- Time - Password)
+const totp = { //genera una clave secreta para la autenticacion de dos factores
     makeKey: () => {
         return speakeasy.generateSecret({ length: 64 }).base32
     },
