@@ -1,5 +1,5 @@
 const Books = require('../../models')["books"] //Importe el modelo Book
-const helpers = require('../../libs/helpers') //Importa el módulo helpers 
+const helpers = require('../../libs/helpers') //Importa el modelo helpers 
 const Book = {
     //busqueda conteo total 
     count: async () => {
