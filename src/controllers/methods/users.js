@@ -13,9 +13,9 @@ const User = {
             body.totp = totp.makeKey() //nos ayuda a generar la clave TOTP para los usuarios
             body.password = totp.encodePasswd(body.password) //Codifica la contraseña
             body.date_record = totp.getDate() //Obtenemos la fecha de registro 
-            const datosConfig = await ConfigX.read() //lee la configuracion de del correo electronico
-            console.log(datosConfig); //
-            await helpers.EnviarCorreo(atob(atob(datosConfig[0].email)), atob(atob(datosConfig[0].password)), body.email, 'Cuenta Creada', '', `<h1>Bienvenido ${body.name}</h1><hr>Ya eres parte de nuestro equipo de trabajo.`) //envia correo de confirmacion 
+            //const datosConfig = await ConfigX.read() //lee la configuracion de del correo electronico
+            //console.log(datosConfig); //
+            //await helpers.EnviarCorreo(atob(atob(datosConfig[0].email)), atob(atob(datosConfig[0].password)), body.email, 'Cuenta Creada', '', `<h1>Bienvenido ${body.name}</h1><hr>Ya eres parte de nuestro equipo de trabajo.`) //envia correo de confirmacion 
             return Users.create(body) //nos permite crear un nuevo usuario en la base de datos
         } catch (err) {
             return err.Message //nos ayuda con los errores
