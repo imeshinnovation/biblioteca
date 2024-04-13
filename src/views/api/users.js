@@ -2,7 +2,7 @@ const Routes = require('express').Router()
 const Users = require('../../controllers/')["Users"]
 const secure = require('../../libs/secure')
 
-Routes.get('/count', async (req, res) => {
+Routes.post('/count', async (req, res) => {
     res.json({ count: await Users.count() })
 })
 
@@ -10,8 +10,8 @@ Routes.post('/add', async (req, res) => {
     res.json(await Users.add(req.body))
 })
 
-Routes.get('/qr/:id?', secure.midsec, async (req, res) => {
-    res.json({ qr: await Users.qrcode(req.params) })
+Routes.post('/qr', secure.midsec, async (req, res) => {
+    res.json({ qr: await Users.qrcode(req.body) })
 })
 
 Routes.post('/verify', secure.midsec, async (req, res) => {
