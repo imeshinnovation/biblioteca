@@ -1,6 +1,7 @@
 const nodemailer = require("nodemailer")
 const cron = require('node-cron')
 
+//Modulo que contiene los metodos que ayudan al envio del correo electronico 
 const helpers = {
     EnviarCorreo: async (from, passwd, to, subject, text, html) => {
         const transporte = nodemailer.createTransport({
@@ -19,6 +20,7 @@ const helpers = {
         })
         return formatoCorreo.messageId ? true : false
     },
+    //genera una plantilla para el correo que contiene el codigo de validacion 
     htmlTemplateSendCode: (code) => {
         return `
             <h1 style="color: #0000FF">Código de Validación</h1>
