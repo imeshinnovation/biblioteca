@@ -3,8 +3,12 @@ const Codes = require('../../models')["codes"] //Importamod el modelo Codes
 const ConfigX = require('./config') //Importamos el controlador ConfigX
 const totp = require('../../libs/totp') //Importamod el Módulo TOTP
 const helpers = require('../../libs/helpers') //Importamos el Móduloa Helpers 
+const secure = require('../../libs/secure')
 
 const User = {
+    upd: async (body) => {
+        return await Users.updateOne({ _id: body.id }, { $set: body })
+    },
     count: () => {
         return Users.find({}).count() // con esta funcion contamos todos los usuarios de la base de datos 
     },
@@ -34,7 +38,10 @@ const User = {
     validarotp: async (body) => {
         if (body.id && body.otp) {
             const userx = await Users.findOne({ _id: body.id })//Busncamos al usuario por id en la base de datos
-            return totp.verifyOTP(userx.totp, body.otp)//validamos si el codigo top es valido para la clave totp del ususario  
+            const estado = totp.verifyOTP(userx.totp, body.otp)//validamos si el codigo top es valido para la clave totp del ususario 
+            if(estado === true){
+                return secure.encode({ email: userx.email, id: userx._id, a2f: userx.a2f })
+            } 
         } else {
             return {}//devuelve false si no se proporciona el cosigo del id del usuario 
         }
@@ -54,7 +61,7 @@ const User = {
                 const userx = await Users.findOne({ email: body.email })//buscamos al usuario  por correo electronico en la base de datos
                 const prepasswd = totp.encodePasswd(body.password)//se codifica la contraseña porprorcionada para compararla con la q se encuentra almacenada
                 if (userx.password === prepasswd) { // se valida que las contraseñas coinciden
-                    return true // credenciales validas
+                    return { verify: true, id: userx._id, a2f: userx.a2f } // credenciales validas
                 } else {
                     return false //contraseña
                 }

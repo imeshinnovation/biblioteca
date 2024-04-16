@@ -15,6 +15,7 @@ const userSchema = new Schema({
     "state": { type: Boolean, default: false },
     "password": { type: String },
     "totp": { type: String },
+    "a2f": { type: Number, default: 0 },
     "date_record": { type: String }
 })
 
